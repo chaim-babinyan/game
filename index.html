@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>החיים בבנין — דוגמית לשני מכשירים</title>
+<title>החיים בבניה — דוגמית לשני מכשירים</title>
 <style>
 :root{
   --navy:#16243d; --navy2:#22355a; --gold:#b9902f; --gold2:#d4af4e;
@@ -97,7 +97,7 @@ ul.plain{margin:8px 0; padding-inline-start:20px; font-size:14px; line-height:1.
 <div id="screen-home" class="wrap">
   <div style="text-align:center; margin-top:26px;">
     <div class="badge">דוגמית — גרסת ניסוי</div>
-    <h1>החיים בבנין</h1>
+    <h1>החיים בבניה</h1>
     <p class="sub">משחק הזוגיות שלכם — עכשיו באתר, כל אחד מהמכשיר שלו</p>
   </div>
   <div class="card">
@@ -127,7 +127,7 @@ ul.plain{margin:8px 0; padding-inline-start:20px; font-size:14px; line-height:1.
       <li>שני המכשירים צריכים אינטרנט פעיל <b>באותו הזמן</b> — זה משחק משותף חי.</li>
       <li>הסנכרון עובר דרך שרת חינמי ציבורי (PeerJS), בלי הרשמה ובלי תשלום. אם הסינון במכשיר חוסם את החיבור, תופיע הודעה ברורה.</li>
       <li>מי שפתח את החדר הוא ה״מארח״: אם הוא סוגר את הדף, המשחק נגמר. אם הצד השני מתנתק, אפשר להצטרף שוב עם אותו קוד ואותו שם.</li>
-      <li>תכני הקלפים כאן הם חלק מהחפיסות, להדגמה בלבד. מצוקה מופיעה בנוסח מפושט של מירוץ תגובה, ובאמת או חובה הבחירה אקראית — בגרסה המלאה הכל לפי החוקים המקוריים.</li>
+      <li>תכני הקלפים כאן הם חלק מהחפיסות, להדגמה בלבד. מצוקה מופיעה בנוסח מפושט של מירוץ תגובה. באמת או חובה עושים אבן-נייר-ומספריים בפועל והמנצח/ת בוחר/ת, ורק אחרי זה נשלף קלף.</li>
       <li>צבעי הקלפים בדוגמית: אדום, ירוק, כחול — אפשר לשנות.</li>
     </ul>
   </div>
@@ -194,7 +194,7 @@ ul.plain{margin:8px 0; padding-inline-start:20px; font-size:14px; line-height:1.
       <button class="ghost" id="btn-end" style="margin-top:14px;">הצעת סיום משחק</button>
     </div>
     <div class="footer">
-      דוגמית לבדיקת המשחק בשני מכשירים. פישוטים: מצוקה = מירוץ תגובה; אמת/חובה נבחר אקראית; קניית חלק = 3 קלפים מהיד. החיבור חי ומסתנכרן דרך שרת PeerJS ציבורי חינמי; המכשיר של המארח מחזיק את כל מצב המשחק (כולל הקלפים של שניכם), סגירת דף המארח מסיימת את המשחק, והצד השני יכול להצטרף מחדש עם קוד ההזמנה וקוד החזרה האישי שלו.
+      דוגמית לבדיקת המשחק בשני מכשירים. פישוט: מצוקה = מירוץ תגובה; קניית חלק = 3 קלפים מהיד. החיבור חי ומסתנכרן דרך שרת PeerJS ציבורי חינמי; המכשיר של המארח מחזיק את כל מצב המשחק (כולל הקלפים של שניכם), סגירת דף המארח מסיימת את המשחק, והצד השני יכול להצטרף מחדש עם קוד ההזמנה וקוד החזרה האישי שלו.
     </div>
   </div>
 </div>
@@ -238,10 +238,10 @@ const DECKS = {
 const MAALA_INST = ['מעלה','חסרון','מה שהכי בוער'];
 /* board: 24 spaces */
 const BOARD = [
-  {t:'start'},{t:'color',c:'אדום'},{t:'shikuf'},{t:'chavaya'},{t:'color',c:'כחול'},{t:'matzoka'},
-  {t:'maala'},{t:'color',c:'ירוק'},{t:'emet'},{t:'conflict',c:'אדום'},{t:'shikuf'},{t:'color',c:'אדום'},
-  {t:'chavaya'},{t:'matzoka'},{t:'color',c:'כחול'},{t:'maala'},{t:'shikuf'},{t:'conflict',c:'ירוק'},
-  {t:'color',c:'ירוק'},{t:'emet'},{t:'matzoka'},{t:'shikuf'},{t:'maala'},{t:'chavaya'},
+  {t:'start'},{t:'conflict',c:'אדום'},{t:'shikuf'},{t:'chavaya'},{t:'conflict',c:'כחול'},{t:'matzoka'},
+  {t:'maala'},{t:'conflict',c:'ירוק'},{t:'emet'},{t:'conflict',c:'אדום'},{t:'shikuf'},{t:'conflict',c:'אדום'},
+  {t:'chavaya'},{t:'matzoka'},{t:'conflict',c:'כחול'},{t:'maala'},{t:'shikuf'},{t:'conflict',c:'ירוק'},
+  {t:'conflict',c:'ירוק'},{t:'emet'},{t:'matzoka'},{t:'shikuf'},{t:'maala'},{t:'chavaya'},
 ];
 const SPACE_LABEL = {shikuf:['ש','שיקוף'],chavaya:['ח','חוויה'],emet:['א','אמת־חובה'],maala:['מ','מעלה־חסרון'],matzoka:['!','מצוקה'],conflict:['✕','קונפליקט'],color:['●',''],start:['►','התחלה']};
 const GRID_W=6, GRID_H=5;
@@ -403,6 +403,11 @@ function hostAct(d){
     if(p.kind==='matzoka'){ /* closed after winner set */ }
     state.pending=null; state.stage='roll'; advanceTurn(); pushState(); return;
   }
+  if(a.kind==='emetPick' && state.pending && state.pending.kind==='emetDecide' && (a.side==='emet'||a.side==='chova')){
+    const actor=state.pending.actor; const dc=drawCard('emet'); const card=DECKS.emet.cards[dc.idx];
+    logLine('המנצח/ת בהכרעה בחר/ה: '+(a.side==='emet'?'אמת':'חובה')+'. אחרי ההחלטה נשלף הקלף.');
+    state.pending={kind:'task',deck:'emet',actor:actor,color:dc.color,side:a.side,cardText:card[a.side]}; pushState(); return;
+  }
   if(a.kind==='chavayaPick' && state.pending && state.pending.kind==='chavaya' && state.pending.picker===pid){
     state.pending.chosen=a.word; pushState(); return;
   }
@@ -449,29 +454,28 @@ function movePlayer(pid,die){
     const next=(me.pos+1)%BOARD.length;
     if(next===0){ me.lap++; me.pieces.square++; me.pieces.circle++; logLine(me.name+' השלים/ה סיבוב! ריבוע + עיגול מתנה.'); }
     const sp=BOARD[next];
-    if(sp.t==='color' && me.lap>=1){
+    if(sp.t==='conflict'){
       const i=me.hand.findIndex(c=>c.color===sp.c);
-      if(i>=0){ me.hand.splice(i,1); logLine('עבר/ה משבצת '+sp.c+' — שולם קלף '+sp.c+'.'); }
-      else { me.pos=next; steps=0; logLine('אין לו/לה קלף '+sp.c+' — עצירה במשבצת הצבע.'); break; }
+      if(i>=0){ me.hand.splice(i,1); logLine('משבצת קונפליקט '+sp.c+' — שולם קלף '+sp.c+' לקופה, וממשיכים.'); }
+      else { me.pos=next; steps=0; me.skipNext=true; logLine('אין קלף '+sp.c+' — עצירה במשבצת הקונפליקט והפסד תור.'); break; }
     }
     me.pos=next; steps--;
   }
   me.pieces.circle++; logLine(me.name+' קיבל/ה עיגול על התנועה.');
   const sp=BOARD[me.pos];
-  if(sp.t==='start'||sp.t==='color'){ state.stage='roll'; advanceTurn(); return; }
+  if(sp.t==='start'||sp.t==='conflict'){ state.stage='roll'; advanceTurn(); return; }
   if(sp.t==='matzoka'){ state.stage='resolve'; state.pending={kind:'matzoka',actor:pid,winner:null}; return; }
-  if(sp.t==='conflict'){ state.stage='resolve'; state.pending={kind:'conflict',actor:pid,color:sp.c}; return; }
   if(sp.t==='chavaya'){
     const words=[...DECKS.chavaya.cards].sort(()=>Math.random()-.5).slice(0,3);
     state.stage='resolve'; state.pending={kind:'chavaya',actor:pid,picker:1-pid,words,chosen:null,color:COLORS[rnd(3)]}; return;
   }
   if(sp.t==='emet'){
-    const dc=drawCard('emet'); const side=Math.random()<.5?'emet':'chova';
-    const card=DECKS.emet.cards[dc.idx];
-    state.stage='resolve'; state.pending={kind:'task',deck:'emet',actor:pid,color:dc.color,side,cardText:card[side]}; return;
+    state.stage='resolve'; state.pending={kind:'emetDecide',actor:pid}; return;
   }
   if(sp.t==='maala'){
-    const dc=drawCard('maala'); const inst=MAALA_INST[rnd(3)];
+    const dc=drawCard('maala');
+    if(!state.instPile||state.instPile.length===0){ state.instPile=[]; for(let k=0;k<8;k++) MAALA_INST.forEach(x=>state.instPile.push(x)); state.instPile.sort(()=>Math.random()-.5); logLine('ערימת ההוראות הוחלפה: כל הקלפים עורבבו והונחו מחדש.'); }
+    const inst=state.instPile.pop();
     state.stage='resolve'; state.pending={kind:'task',deck:'maala',actor:pid,color:dc.color,inst,cardText:DECKS.maala.cards[dc.idx]}; return;
   }
   /* shikuf */
@@ -519,11 +523,11 @@ function renderBoard(){
     const d=document.createElement('div');
     let cls='space';
     if(sp.t==='start') cls+=' start';
-    if(sp.t==='color') cls+=' color-'+(sp.c==='אדום'?'red':sp.c==='ירוק'?'green':'blue');
+    if(sp.t==='conflict') cls+=' color-'+(sp.c==='אדום'?'red':sp.c==='ירוק'?'green':'blue');
     d.className=cls;
     const [ic,lb]=SPACE_LABEL[sp.t];
-    let icHtml=sp.t==='color'?'<span class="ic" style="color:'+COLOR_HEX[sp.c]+'">●</span>':'<span class="ic">'+ic+'</span>';
-    d.innerHTML=icHtml+'<span class="lbl">'+(sp.t==='color'?sp.c:lb)+'</span>';
+    let icHtml=sp.t==='conflict'?'<span class="ic" style="color:'+COLOR_HEX[sp.c]+'">●</span>':'<span class="ic">'+ic+'</span>';
+    d.innerHTML=icHtml+'<span class="lbl">'+(sp.t==='conflict'?'קונפליקט · '+sp.c:lb)+'</span>';
     d.style.gridRow=(row+1); d.style.gridColumn=(col+1);
     const pw=document.createElement('div'); pw.className='pawns';
     state.players.forEach((p,pi)=>{ if(p.pos===i){const w=document.createElement('div');w.className='pawn p'+pi;w.title=p.name;pw.appendChild(w);} });
@@ -606,6 +610,11 @@ function renderModal(){
     }
     return;
   }
+  if(p.kind==='emetDecide'){
+    m.innerHTML='<h2>אמת או חובה</h2><p>עושים אבן-נייר-ומספריים כרגיל. המנצח/ת מחליט/ה: אמת או חובה. רק אחרי ההחלטה נשלף קלף, ו'+esc(state.players[p.actor].name)+' עונה/מבצע/ת.</p><p class="sub">המנצח/ת לוחץ/ת על ההחלטה במכשיר שלו/ה.</p><div class="row"><button class="gold" id="m-e">אמת</button><button class="gold" id="m-c">חובה</button></div>';
+    $('m-e').onclick=()=>act({kind:'emetPick',side:'emet'}); $('m-c').onclick=()=>act({kind:'emetPick',side:'chova'});
+    return;
+  }
   if(p.kind==='conflict'){
     if(meActor){
       const has=state.players[myPid].hand.some(c=>c.color===p.color);
@@ -637,7 +646,7 @@ function renderModal(){
       if(p.deck==='emet') body='<h2>'+(p.side==='emet'?'אמת':'חובה')+'</h2><p style="font-size:17px; line-height:1.8;">'+esc(p.cardText)+'</p>';
       if(p.deck==='maala') body='<div class="bigword">'+esc(p.cardText)+'</div><p>ההוראה שלך (בסוד מהצד השני): <b>'+esc(p.inst)+'</b>. ספר/י על '+esc(p.inst)+' של '+esc(state.players[1-myPid].name)+' בנושא, ועל הצעד שלך כדי להתקדם.</p>';
       const okLabel=p.deck==='maala'?'שיתפתי':'הצלחתי';
-      m.innerHTML='<span class="decktag" style="background:'+deckColor(p.color)+'">'+dn+' · '+p.color+'</span>'+body+
+      m.innerHTML='<span class="decktag" style="background:'+deckColor(p.color)+'">'+dn+(p.deck==='maala'?'':' · '+p.color)+'</span>'+body+
         '<div class="row"><button class="gold" id="m-ok">'+okLabel+'</button>'+(p.deck==='maala'?'':'<button class="ghost" id="m-no">לא הצלחתי</button>')+'</div>';
       $('m-ok').onclick=()=>act({kind:'resolve',ok:true});
       if($('m-no')) $('m-no').onclick=()=>act({kind:'resolve',ok:false});
